@@ -311,13 +311,15 @@ static CVReturn displayLinkCallback(CVDisplayLinkRef displayLink,
         return;
     
     NSSize contentSize = [[self enclosingScrollView] contentSize];
-    
+    NSRect contentRect = NSMakeRect(0, 0, contentSize.width, contentSize.height);
+    contentRect = [[self enclosingScrollView] convertRectToBacking:contentRect];
+
     CGLLockContext(cglContextObj);
     
     [[self openGLContext] makeCurrentContext];
     
-    canvas->setViewportSize(OEMakeSize((float) contentSize.width,
-                                       (float) contentSize.height));
+    canvas->setViewportSize(OEMakeSize((float) contentRect.size.width,
+                                       (float) contentRect.size.height));
     
     [NSOpenGLContext clearCurrentContext];
     

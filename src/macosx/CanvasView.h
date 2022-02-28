@@ -35,6 +35,8 @@
 - (void)windowDidResize;
 - (void)windowDidBecomeKey;
 - (void)windowDidResignKey;
+- (void)windowDidChangeScreen;
+- (void)windowDidChangeBackingProperties;
 
 - (void)initOpenGL;
 - (void)freeOpenGL;

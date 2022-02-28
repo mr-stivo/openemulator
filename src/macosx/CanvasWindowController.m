@@ -347,6 +347,16 @@
     [fCanvasView windowDidResignKey];
 }
 
+- (void)windowDidChangeScreen:(NSNotification *)notification
+{
+    [fCanvasView windowDidResize];
+}
+
+- (void)windowDidChangeBackingProperties:(NSNotification *)notification
+{
+    [fCanvasView windowDidResize];
+}
+
 - (NSApplicationPresentationOptions)window:(NSWindow *)window
       willUseFullScreenPresentationOptions:(NSApplicationPresentationOptions)proposedOptions
 {
