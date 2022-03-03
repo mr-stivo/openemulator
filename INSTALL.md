@@ -19,8 +19,12 @@ Install the dependencies for libemulation as described [here](https://github.com
 	cmake --build modules/libemulation/build --config Release
 
 ### Build
-Open OpenEmulator in Xcode to build, or run this command:
+Open OpenEmulator in Xcode to build, or run one of these commands:
 
-	xcodebuild
+    ./build_openemulator (builds a dynamically linked application)
+    ./build_openemulator-standalone (embeds required libraries in the application)
+    ./build_openemulator-universal (builds a stand-alone universal application)
+	(deprecated) xcodebuild -arch x86_64
+	(deprecated) xcodebuild -arch arm64
 
-This will create the application bundle `OpenEmulator.app` in the build/Release directory.
+These commands will create the application bundle `OpenEmulator.app` in the build/Release directory.

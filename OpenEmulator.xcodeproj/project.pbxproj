@@ -7,15 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00039FD112B04F6C0025D374 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 00039FD012B04F6C0025D374 /* libxml2.dylib */; };
-		002F57E615CDF4AC00C19659 /* libz.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 002F57E515CDF4AC00C19659 /* libz.a */; };
-		002F57E815CDF4B400C19659 /* libvorbis.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 002F57E715CDF4B400C19659 /* libvorbis.a */; };
-		002F57EA15CDF4B900C19659 /* libzip.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 002F57E915CDF4B900C19659 /* libzip.a */; };
-		002F57EC15CDF4C000C19659 /* libsndfile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 002F57EB15CDF4C000C19659 /* libsndfile.a */; };
-		002F57EE15CDF4C600C19659 /* libsamplerate.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 002F57ED15CDF4C600C19659 /* libsamplerate.a */; };
-		002F57F015CDF4CB00C19659 /* libportaudio.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 002F57EF15CDF4CB00C19659 /* libportaudio.a */; };
-		002F57F415CDF66B00C19659 /* libogg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 002F57F315CDF66B00C19659 /* libogg.a */; };
-		002F57F815CDF6F800C19659 /* libvorbisenc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 002F57F715CDF6F800C19659 /* libvorbisenc.a */; };
 		003B167C12EE27ED003FB8F6 /* CoreAudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 003B167B12EE27ED003FB8F6 /* CoreAudioKit.framework */; };
 		003B16B212EE2A05003FB8F6 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 003B165712EE276E003FB8F6 /* AudioToolbox.framework */; };
 		003B16B712EE2A0D003FB8F6 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 003B165112EE275C003FB8F6 /* AudioUnit.framework */; };
@@ -27,10 +18,127 @@
 		0054E66C1131BF58006D32D9 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0054E66B1131BF58006D32D9 /* Quartz.framework */; };
 		008CA97E147803E500B9F5D0 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 008CA97D147803E500B9F5D0 /* IOKit.framework */; };
 		00F4D0BF12E2E42F00B7F5E6 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00F4D0BE12E2E42F00B7F5E6 /* ApplicationServices.framework */; };
+		3A7E3CAA27D0EAB4004759CD /* libFLAC.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A7E3CA927D0EAB4004759CD /* libFLAC.dylib */; };
+		3A7E3CAB27D0EAB4004759CD /* libFLAC.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 3A7E3CA927D0EAB4004759CD /* libFLAC.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		3A7E3CAC27D0EAC2004759CD /* libFLAC.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A7E3CA927D0EAB4004759CD /* libFLAC.dylib */; };
+		3ACF928227D0D0E80006876C /* libportaudio.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ACF927627D0D0E80006876C /* libportaudio.dylib */; };
+		3ACF928427D0D0E80006876C /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ACF927727D0D0E80006876C /* libxml2.dylib */; };
+		3ACF928627D0D0E80006876C /* libsamplerate.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ACF927827D0D0E80006876C /* libsamplerate.dylib */; };
+		3ACF928A27D0D0E80006876C /* libogg.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ACF927A27D0D0E80006876C /* libogg.dylib */; };
+		3ACF928C27D0D0E80006876C /* libzip.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ACF927B27D0D0E80006876C /* libzip.dylib */; };
+		3ACF928E27D0D0E80006876C /* libzstd.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ACF927C27D0D0E80006876C /* libzstd.dylib */; };
+		3ACF929027D0D0E80006876C /* libvorbis.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ACF927D27D0D0E80006876C /* libvorbis.dylib */; };
+		3ACF929227D0D0E80006876C /* libsndfile.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ACF927E27D0D0E80006876C /* libsndfile.dylib */; };
+		3ACF929427D0D0E80006876C /* libvorbisenc.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ACF927F27D0D0E80006876C /* libvorbisenc.dylib */; };
+		3ACF929627D0D0E80006876C /* libopus.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ACF928027D0D0E80006876C /* libopus.dylib */; };
+		3ACF929827D0D0E80006876C /* libpng16.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ACF928127D0D0E80006876C /* libpng16.dylib */; };
+		3AE5C19827D0E24000C6FB9A /* sparkle_dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 49EB4CA618C63BE500AD682A /* sparkle_dsa_pub.pem */; };
+		3AE5C19927D0E24000C6FB9A /* AudioPlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EB4C7A18C63BE500AD682A /* AudioPlay.png */; };
+		3AE5C19A27D0E24000C6FB9A /* IconRevert.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EB4C8F18C63BE500AD682A /* IconRevert.png */; };
+		3AE5C19B27D0E24000C6FB9A /* IconVideo.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EB4C9118C63BE500AD682A /* IconVideo.png */; };
+		3AE5C19C27D0E24000C6FB9A /* IconWakeUp.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EB4C9218C63BE500AD682A /* IconWakeUp.png */; };
+		3AE5C19D27D0E24000C6FB9A /* EmulationUnmountSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EB4C8618C63BE500AD682A /* EmulationUnmountSelected.png */; };
+		3AE5C19E27D0E24000C6FB9A /* EmulationShowPressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EB4C8018C63BE500AD682A /* EmulationShowPressed.png */; };
+		3AE5C19F27D0E24000C6FB9A /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49EB4C7018C63BE500AD682A /* Preferences.xib */; };
+		3AE5C1A027D0E24000C6FB9A /* IconAudio.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EB4C8718C63BE500AD682A /* IconAudio.png */; };
+		3AE5C1A127D0E24000C6FB9A /* DiskImage.icns in Resources */ = {isa = PBXBuildFile; fileRef = 49EB4C7D18C63BE500AD682A /* DiskImage.icns */; };
+		3AE5C1A227D0E24000C6FB9A /* IconDevices.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EB4C8A18C63BE500AD682A /* IconDevices.png */; };
+		3AE5C1A327D0E24000C6FB9A /* IconSleep.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EB4C9018C63BE500AD682A /* IconSleep.png */; };
+		3AE5C1A427D0E24000C6FB9A /* library in Resources */ = {isa = PBXBuildFile; fileRef = 496AF1D818C677B600B35159 /* library */; };
+		3AE5C1A527D0E24000C6FB9A /* EmulationShow.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EB4C7F18C63BE500AD682A /* EmulationShow.png */; };
+		3AE5C1A627D0E24000C6FB9A /* EmulationUnmountPressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EB4C8418C63BE500AD682A /* EmulationUnmountPressed.png */; };
+		3AE5C1A727D0E24000C6FB9A /* roms in Resources */ = {isa = PBXBuildFile; fileRef = AB2672111E5E8FC900B971E0 /* roms */; };
+		3AE5C1A827D0E24000C6FB9A /* templates in Resources */ = {isa = PBXBuildFile; fileRef = 496AF1DA18C677B600B35159 /* templates */; };
+		3AE5C1A927D0E24000C6FB9A /* EmulationUnmountRollover.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EB4C8518C63BE500AD682A /* EmulationUnmountRollover.png */; };
+		3AE5C1AA27D0E24000C6FB9A /* IconInspector.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EB4C8C18C63BE500AD682A /* IconInspector.png */; };
+		3AE5C1AB27D0E24000C6FB9A /* IconLibrary.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EB4C8D18C63BE500AD682A /* IconLibrary.png */; };
+		3AE5C1AC27D0E24000C6FB9A /* IconWarmRestart.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EB4C9318C63BE500AD682A /* IconWarmRestart.png */; };
+		3AE5C1AD27D0E24000C6FB9A /* Emulation.icns in Resources */ = {isa = PBXBuildFile; fileRef = 49EB4C7E18C63BE500AD682A /* Emulation.icns */; };
+		3AE5C1AE27D0E24000C6FB9A /* EmulationShowRollover.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EB4C8118C63BE500AD682A /* EmulationShowRollover.png */; };
+		3AE5C1AF27D0E24000C6FB9A /* IconDebuggerBreak.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EB4C8918C63BE500AD682A /* IconDebuggerBreak.png */; };
+		3AE5C1B027D0E24000C6FB9A /* Library.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49EB4C6C18C63BE500AD682A /* Library.xib */; };
+		3AE5C1B127D0E24000C6FB9A /* AudioMax.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EB4C7718C63BE500AD682A /* AudioMax.png */; };
+		3AE5C1B227D0E24000C6FB9A /* TemplateChooserView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49EB4C7418C63BE500AD682A /* TemplateChooserView.xib */; };
+		3AE5C1B327D0E24000C6FB9A /* ToolbarBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EB4C9518C63BE500AD682A /* ToolbarBackground.png */; };
+		3AE5C1B427D0E24000C6FB9A /* Canvas.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49EB4C6818C63BE500AD682A /* Canvas.xib */; };
+		3AE5C1B527D0E24000C6FB9A /* AudioControls.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49EB4C6618C63BE500AD682A /* AudioControls.xib */; };
+		3AE5C1B627D0E24000C6FB9A /* IconColdRestart.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EB4C8818C63BE500AD682A /* IconColdRestart.png */; };
+		3AE5C1B727D0E24000C6FB9A /* sounds in Resources */ = {isa = PBXBuildFile; fileRef = 496AF1D918C677B600B35159 /* sounds */; };
+		3AE5C1B827D0E24000C6FB9A /* EmulationShowSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EB4C8218C63BE500AD682A /* EmulationShowSelected.png */; };
+		3AE5C1B927D0E24000C6FB9A /* IconPowerDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EB4C8E18C63BE500AD682A /* IconPowerDown.png */; };
+		3AE5C1BA27D0E24000C6FB9A /* IconGeneral.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EB4C8B18C63BE500AD682A /* IconGeneral.png */; };
+		3AE5C1BB27D0E24000C6FB9A /* AudioRecord.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EB4C7B18C63BE500AD682A /* AudioRecord.png */; };
+		3AE5C1BC27D0E24000C6FB9A /* OpenEmulator.icns in Resources */ = {isa = PBXBuildFile; fileRef = 49EB4C9418C63BE500AD682A /* OpenEmulator.icns */; };
+		3AE5C1BD27D0E24000C6FB9A /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49EB4CFF18C6536000AD682A /* MainMenu.xib */; };
+		3AE5C1BE27D0E24000C6FB9A /* AudioMin.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EB4C7818C63BE500AD682A /* AudioMin.png */; };
+		3AE5C1BF27D0E24000C6FB9A /* AudioPause.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EB4C7918C63BE500AD682A /* AudioPause.png */; };
+		3AE5C1C027D0E24000C6FB9A /* TemplateChooser.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49EB4C7218C63BE500AD682A /* TemplateChooser.xib */; };
+		3AE5C1C127D0E24000C6FB9A /* EmulationUnmount.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EB4C8318C63BE500AD682A /* EmulationUnmount.png */; };
+		3AE5C1C227D0E24000C6FB9A /* AudioStop.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EB4C7C18C63BE500AD682A /* AudioStop.png */; };
+		3AE5C1C327D0E24000C6FB9A /* Emulation.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49EB4C6A18C63BE500AD682A /* Emulation.xib */; };
+		3AE5C1C427D0E24000C6FB9A /* images in Resources */ = {isa = PBXBuildFile; fileRef = B32914231AD16C4400EB7046 /* images */; };
+		3AE5C1C627D0E24000C6FB9A /* CanvasView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 49EB4C5518C63BE500AD682A /* CanvasView.mm */; };
+		3AE5C1C727D0E24000C6FB9A /* LibraryTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EB4C9C18C63BE500AD682A /* LibraryTableView.m */; };
+		3AE5C1C827D0E24000C6FB9A /* EmulationWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EB4C6518C63BE500AD682A /* EmulationWindowController.m */; };
+		3AE5C1C927D0E24000C6FB9A /* BackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EB4C4F18C63BE500AD682A /* BackgroundView.m */; };
+		3AE5C1CA27D0E24000C6FB9A /* EmulationItem.mm in Sources */ = {isa = PBXBuildFile; fileRef = 49EB4C5F18C63BE500AD682A /* EmulationItem.mm */; };
+		3AE5C1CB27D0E24000C6FB9A /* TemplateChooserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EB4CAA18C63BE500AD682A /* TemplateChooserViewController.m */; };
+		3AE5C1CC27D0E24000C6FB9A /* CanvasWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EB4C5718C63BE500AD682A /* CanvasWindow.m */; };
+		3AE5C1CD27D0E24000C6FB9A /* LibraryWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EB4C9E18C63BE500AD682A /* LibraryWindowController.m */; };
+		3AE5C1CE27D0E24000C6FB9A /* EmulationOutlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EB4C6318C63BE500AD682A /* EmulationOutlineView.m */; };
+		3AE5C1CF27D0E24000C6FB9A /* LibraryItem.mm in Sources */ = {isa = PBXBuildFile; fileRef = 49EB4C9818C63BE500AD682A /* LibraryItem.mm */; };
+		3AE5C1D027D0E24000C6FB9A /* NSStringAdditions.mm in Sources */ = {isa = PBXBuildFile; fileRef = 49EB4CA118C63BE500AD682A /* NSStringAdditions.mm */; };
+		3AE5C1D127D0E24000C6FB9A /* PreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EB4CA418C63BE500AD682A /* PreferencesWindowController.m */; };
+		3AE5C1D227D0E24000C6FB9A /* EmulationOutlineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EB4C6118C63BE500AD682A /* EmulationOutlineCell.m */; };
+		3AE5C1D327D0E24000C6FB9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EB4C9F18C63BE500AD682A /* main.m */; };
+		3AE5C1D427D0E24000C6FB9A /* CanvasWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EB4C5918C63BE500AD682A /* CanvasWindowController.m */; };
+		3AE5C1D527D0E24000C6FB9A /* CanvasPrintView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EB4C5118C63BE500AD682A /* CanvasPrintView.m */; };
+		3AE5C1D627D0E24000C6FB9A /* Document.mm in Sources */ = {isa = PBXBuildFile; fileRef = 49EB4C5B18C63BE500AD682A /* Document.mm */; };
+		3AE5C1D727D0E24000C6FB9A /* DocumentController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 49EB4C5D18C63BE500AD682A /* DocumentController.mm */; };
+		3AE5C1D827D0E24000C6FB9A /* LibraryTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EB4C9A18C63BE500AD682A /* LibraryTableCell.m */; };
+		3AE5C1D927D0E24000C6FB9A /* VerticallyCenteredTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EB4CAE18C63BE500AD682A /* VerticallyCenteredTextFieldCell.m */; };
+		3AE5C1DA27D0E24000C6FB9A /* TemplateChooserWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EB4CAC18C63BE500AD682A /* TemplateChooserWindowController.m */; };
+		3AE5C1DB27D0E24000C6FB9A /* AudioControlsWindowController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 49EB4C4D18C63BE500AD682A /* AudioControlsWindowController.mm */; };
+		3AE5C1DC27D0E24000C6FB9A /* TemplateChooserItem.mm in Sources */ = {isa = PBXBuildFile; fileRef = 49EB4CA818C63BE500AD682A /* TemplateChooserItem.mm */; };
+		3AE5C1DD27D0E24000C6FB9A /* Application.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EB4C4B18C63BE500AD682A /* Application.m */; };
+		3AE5C1DE27D0E24000C6FB9A /* CanvasToolbarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EB4C5318C63BE500AD682A /* CanvasToolbarView.m */; };
+		3AE5C1E027D0E24000C6FB9A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0054E4A01131BE7A006D32D9 /* Cocoa.framework */; };
+		3AE5C1E127D0E24000C6FB9A /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ACF927727D0D0E80006876C /* libxml2.dylib */; };
+		3AE5C1E227D0E24000C6FB9A /* libsamplerate.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ACF927827D0D0E80006876C /* libsamplerate.dylib */; };
+		3AE5C1E327D0E24000C6FB9A /* libogg.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ACF927A27D0D0E80006876C /* libogg.dylib */; };
+		3AE5C1E427D0E24000C6FB9A /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0054E4A61131BE8A006D32D9 /* OpenGL.framework */; };
+		3AE5C1E527D0E24000C6FB9A /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0054E6301131BEE7006D32D9 /* Carbon.framework */; };
+		3AE5C1E627D0E24000C6FB9A /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0054E66B1131BF58006D32D9 /* Quartz.framework */; };
+		3AE5C1E727D0E24000C6FB9A /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00F4D0BE12E2E42F00B7F5E6 /* ApplicationServices.framework */; };
+		3AE5C1E827D0E24000C6FB9A /* libopus.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ACF928027D0D0E80006876C /* libopus.dylib */; };
+		3AE5C1E927D0E24000C6FB9A /* libportaudio.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ACF927627D0D0E80006876C /* libportaudio.dylib */; };
+		3AE5C1EA27D0E24000C6FB9A /* CoreAudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 003B167B12EE27ED003FB8F6 /* CoreAudioKit.framework */; };
+		3AE5C1EB27D0E24000C6FB9A /* libzip.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ACF927B27D0D0E80006876C /* libzip.dylib */; };
+		3AE5C1EC27D0E24000C6FB9A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 003B165712EE276E003FB8F6 /* AudioToolbox.framework */; };
+		3AE5C1ED27D0E24000C6FB9A /* libzstd.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ACF927C27D0D0E80006876C /* libzstd.dylib */; };
+		3AE5C1EE27D0E24000C6FB9A /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 003B165112EE275C003FB8F6 /* AudioUnit.framework */; };
+		3AE5C1EF27D0E24000C6FB9A /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 003B158312EE26BA003FB8F6 /* CoreAudio.framework */; };
+		3AE5C1F127D0E24000C6FB9A /* libvorbisenc.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ACF927F27D0D0E80006876C /* libvorbisenc.dylib */; };
+		3AE5C1F227D0E24000C6FB9A /* libsndfile.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ACF927E27D0D0E80006876C /* libsndfile.dylib */; };
+		3AE5C1F327D0E24000C6FB9A /* libpng16.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ACF928127D0D0E80006876C /* libpng16.dylib */; };
+		3AE5C1F427D0E24000C6FB9A /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 003B16C712EE2A61003FB8F6 /* CoreServices.framework */; };
+		3AE5C1F527D0E24000C6FB9A /* libvorbis.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ACF927D27D0D0E80006876C /* libvorbis.dylib */; };
+		3AE5C1F627D0E24000C6FB9A /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 008CA97D147803E500B9F5D0 /* IOKit.framework */; };
+		3AE5C1F727D0E24000C6FB9A /* libemulation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F60993D522C97E7E00B9BE53 /* libemulation.a */; };
+		3AE5C1FF27D0E26200C6FB9A /* libogg.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 3ACF927A27D0D0E80006876C /* libogg.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		3AE5C20027D0E26200C6FB9A /* libopus.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 3ACF928027D0D0E80006876C /* libopus.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		3AE5C20127D0E26200C6FB9A /* libpng16.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 3ACF928127D0D0E80006876C /* libpng16.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		3AE5C20227D0E26200C6FB9A /* libportaudio.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 3ACF927627D0D0E80006876C /* libportaudio.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		3AE5C20327D0E26200C6FB9A /* libsamplerate.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 3ACF927827D0D0E80006876C /* libsamplerate.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		3AE5C20427D0E26200C6FB9A /* libsndfile.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 3ACF927E27D0D0E80006876C /* libsndfile.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		3AE5C20527D0E26200C6FB9A /* libvorbis.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 3ACF927D27D0D0E80006876C /* libvorbis.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		3AE5C20627D0E26200C6FB9A /* libvorbisenc.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 3ACF927F27D0D0E80006876C /* libvorbisenc.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		3AE5C20727D0E26200C6FB9A /* libxml2.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 3ACF927727D0D0E80006876C /* libxml2.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		3AE5C20827D0E26200C6FB9A /* libzip.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 3ACF927B27D0D0E80006876C /* libzip.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		3AE5C20927D0E26200C6FB9A /* libzstd.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 3ACF927C27D0D0E80006876C /* libzstd.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		496AF1DC18C677B600B35159 /* library in Resources */ = {isa = PBXBuildFile; fileRef = 496AF1D818C677B600B35159 /* library */; };
 		496AF1DD18C677B600B35159 /* sounds in Resources */ = {isa = PBXBuildFile; fileRef = 496AF1D918C677B600B35159 /* sounds */; };
 		496AF1DE18C677B600B35159 /* templates in Resources */ = {isa = PBXBuildFile; fileRef = 496AF1DA18C677B600B35159 /* templates */; };
-		49EB4C4318C63B1800AD682A /* libFLAC.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 49EB4C4218C63B1800AD682A /* libFLAC.dylib */; };
 		49EB4CB218C63BE500AD682A /* Application.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EB4C4B18C63BE500AD682A /* Application.m */; };
 		49EB4CB318C63BE500AD682A /* AudioControlsWindowController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 49EB4C4D18C63BE500AD682A /* AudioControlsWindowController.mm */; };
 		49EB4CB418C63BE500AD682A /* BackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EB4C4F18C63BE500AD682A /* BackgroundView.m */; };
@@ -96,44 +204,37 @@
 		49EB4CF318C63BE500AD682A /* TemplateChooserWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EB4CAC18C63BE500AD682A /* TemplateChooserWindowController.m */; };
 		49EB4CF418C63BE500AD682A /* VerticallyCenteredTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EB4CAE18C63BE500AD682A /* VerticallyCenteredTextFieldCell.m */; };
 		49EB4D0B18C6536100AD682A /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49EB4CFF18C6536000AD682A /* MainMenu.xib */; };
-		49EB4D1418C65CD500AD682A /* libpng16.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49EB4D1318C65CD500AD682A /* libpng16.a */; };
 		AB2672121E5E8FC900B971E0 /* roms in Resources */ = {isa = PBXBuildFile; fileRef = AB2672111E5E8FC900B971E0 /* roms */; };
 		B32914241AD16C4400EB7046 /* images in Resources */ = {isa = PBXBuildFile; fileRef = B32914231AD16C4400EB7046 /* images */; };
 		F60993D622C97E7E00B9BE53 /* libemulation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F60993D522C97E7E00B9BE53 /* libemulation.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		005486C30FDC84A300DBCFA8 /* Copy Frameworks */ = {
+		3AE5C20A27D0E26200C6FB9A /* Embed Libraries */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				3AE5C1FF27D0E26200C6FB9A /* libogg.dylib in Embed Libraries */,
+				3AE5C20427D0E26200C6FB9A /* libsndfile.dylib in Embed Libraries */,
+				3AE5C20927D0E26200C6FB9A /* libzstd.dylib in Embed Libraries */,
+				3AE5C20327D0E26200C6FB9A /* libsamplerate.dylib in Embed Libraries */,
+				3A7E3CAB27D0EAB4004759CD /* libFLAC.dylib in Embed Libraries */,
+				3AE5C20227D0E26200C6FB9A /* libportaudio.dylib in Embed Libraries */,
+				3AE5C20527D0E26200C6FB9A /* libvorbis.dylib in Embed Libraries */,
+				3AE5C20027D0E26200C6FB9A /* libopus.dylib in Embed Libraries */,
+				3AE5C20627D0E26200C6FB9A /* libvorbisenc.dylib in Embed Libraries */,
+				3AE5C20127D0E26200C6FB9A /* libpng16.dylib in Embed Libraries */,
+				3AE5C20727D0E26200C6FB9A /* libxml2.dylib in Embed Libraries */,
+				3AE5C20827D0E26200C6FB9A /* libzip.dylib in Embed Libraries */,
 			);
-			name = "Copy Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		00F5EC0515ABBE24004D056E /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-			);
+			name = "Embed Libraries";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		00039FD012B04F6C0025D374 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
-		002F57E515CDF4AC00C19659 /* libz.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libz.a; path = /opt/local/lib/libz.a; sourceTree = "<absolute>"; };
-		002F57E715CDF4B400C19659 /* libvorbis.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libvorbis.a; path = /opt/local/lib/libvorbis.a; sourceTree = "<absolute>"; };
-		002F57E915CDF4B900C19659 /* libzip.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libzip.a; path = /opt/local/lib/libzip.a; sourceTree = "<absolute>"; };
-		002F57EB15CDF4C000C19659 /* libsndfile.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libsndfile.a; path = /opt/local/lib/libsndfile.a; sourceTree = "<absolute>"; };
-		002F57ED15CDF4C600C19659 /* libsamplerate.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libsamplerate.a; path = /opt/local/lib/libsamplerate.a; sourceTree = "<absolute>"; };
-		002F57EF15CDF4CB00C19659 /* libportaudio.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libportaudio.a; path = /opt/local/lib/libportaudio.a; sourceTree = "<absolute>"; };
-		002F57F315CDF66B00C19659 /* libogg.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libogg.a; path = /opt/local/lib/libogg.a; sourceTree = "<absolute>"; };
-		002F57F715CDF6F800C19659 /* libvorbisenc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libvorbisenc.a; path = /opt/local/lib/libvorbisenc.a; sourceTree = "<absolute>"; };
 		003B158312EE26BA003FB8F6 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		003B165112EE275C003FB8F6 /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
 		003B165712EE276E003FB8F6 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -145,10 +246,23 @@
 		0054E66B1131BF58006D32D9 /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
 		008CA97D147803E500B9F5D0 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		00F4D0BE12E2E42F00B7F5E6 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = System/Library/Frameworks/ApplicationServices.framework; sourceTree = SDKROOT; };
+		3A7E3CA927D0EAB4004759CD /* libFLAC.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libFLAC.dylib; path = lib/libFLAC.dylib; sourceTree = "<group>"; };
+		3ACF927627D0D0E80006876C /* libportaudio.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libportaudio.dylib; path = lib/libportaudio.dylib; sourceTree = "<group>"; };
+		3ACF927727D0D0E80006876C /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = lib/libxml2.dylib; sourceTree = "<group>"; };
+		3ACF927827D0D0E80006876C /* libsamplerate.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsamplerate.dylib; path = lib/libsamplerate.dylib; sourceTree = "<group>"; };
+		3ACF927A27D0D0E80006876C /* libogg.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libogg.dylib; path = lib/libogg.dylib; sourceTree = "<group>"; };
+		3ACF927B27D0D0E80006876C /* libzip.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libzip.dylib; path = lib/libzip.dylib; sourceTree = "<group>"; };
+		3ACF927C27D0D0E80006876C /* libzstd.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libzstd.dylib; path = lib/libzstd.dylib; sourceTree = "<group>"; };
+		3ACF927D27D0D0E80006876C /* libvorbis.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libvorbis.dylib; path = lib/libvorbis.dylib; sourceTree = "<group>"; };
+		3ACF927E27D0D0E80006876C /* libsndfile.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsndfile.dylib; path = lib/libsndfile.dylib; sourceTree = "<group>"; };
+		3ACF927F27D0D0E80006876C /* libvorbisenc.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libvorbisenc.dylib; path = lib/libvorbisenc.dylib; sourceTree = "<group>"; };
+		3ACF928027D0D0E80006876C /* libopus.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopus.dylib; path = lib/libopus.dylib; sourceTree = "<group>"; };
+		3ACF928127D0D0E80006876C /* libpng16.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libpng16.dylib; path = lib/libpng16.dylib; sourceTree = "<group>"; };
+		3AE5C1FC27D0E24000C6FB9A /* OpenEmulator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenEmulator.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3AE5C1FD27D0E24000C6FB9A /* OpenEmulator copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "OpenEmulator copy-Info.plist"; path = "/Users/stivo/tmp/openemulator/OpenEmulator copy-Info.plist"; sourceTree = "<absolute>"; };
 		496AF1D818C677B600B35159 /* library */ = {isa = PBXFileReference; lastKnownFileType = folder; name = library; path = modules/libemulation/res/library; sourceTree = "<group>"; };
 		496AF1D918C677B600B35159 /* sounds */ = {isa = PBXFileReference; lastKnownFileType = folder; name = sounds; path = modules/libemulation/res/sounds; sourceTree = "<group>"; };
 		496AF1DA18C677B600B35159 /* templates */ = {isa = PBXFileReference; lastKnownFileType = folder; name = templates; path = modules/libemulation/res/templates; sourceTree = "<group>"; };
-		49EB4C4218C63B1800AD682A /* libFLAC.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libFLAC.dylib; path = ../../../../opt/local/lib/libFLAC.dylib; sourceTree = "<group>"; };
 		49EB4C4A18C63BE500AD682A /* Application.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Application.h; sourceTree = "<group>"; };
 		49EB4C4B18C63BE500AD682A /* Application.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Application.m; sourceTree = "<group>"; };
 		49EB4C4C18C63BE500AD682A /* AudioControlsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioControlsWindowController.h; sourceTree = "<group>"; };
@@ -248,7 +362,6 @@
 		49EB4D0218C6536100AD682A /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = Preferences.xib; sourceTree = "<group>"; };
 		49EB4D0418C6536100AD682A /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = TemplateChooser.xib; sourceTree = "<group>"; };
 		49EB4D0618C6536100AD682A /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = TemplateChooserView.xib; sourceTree = "<group>"; };
-		49EB4D1318C65CD500AD682A /* libpng16.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpng16.a; path = /opt/local/lib/libpng16.a; sourceTree = "<absolute>"; };
 		8D15AC370486D014006FF6A4 /* OpenEmulator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenEmulator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB2672111E5E8FC900B971E0 /* roms */ = {isa = PBXFileReference; lastKnownFileType = folder; name = roms; path = modules/libemulation/res/roms; sourceTree = "<group>"; };
 		B32914231AD16C4400EB7046 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; name = images; path = modules/libemulation/res/images; sourceTree = "<group>"; };
@@ -256,32 +369,64 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3AE5C1DF27D0E24000C6FB9A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3AE5C1E027D0E24000C6FB9A /* Cocoa.framework in Frameworks */,
+				3AE5C1E127D0E24000C6FB9A /* libxml2.dylib in Frameworks */,
+				3AE5C1E227D0E24000C6FB9A /* libsamplerate.dylib in Frameworks */,
+				3AE5C1E327D0E24000C6FB9A /* libogg.dylib in Frameworks */,
+				3A7E3CAA27D0EAB4004759CD /* libFLAC.dylib in Frameworks */,
+				3AE5C1E427D0E24000C6FB9A /* OpenGL.framework in Frameworks */,
+				3AE5C1E527D0E24000C6FB9A /* Carbon.framework in Frameworks */,
+				3AE5C1E627D0E24000C6FB9A /* Quartz.framework in Frameworks */,
+				3AE5C1E727D0E24000C6FB9A /* ApplicationServices.framework in Frameworks */,
+				3AE5C1E827D0E24000C6FB9A /* libopus.dylib in Frameworks */,
+				3AE5C1E927D0E24000C6FB9A /* libportaudio.dylib in Frameworks */,
+				3AE5C1EA27D0E24000C6FB9A /* CoreAudioKit.framework in Frameworks */,
+				3AE5C1EB27D0E24000C6FB9A /* libzip.dylib in Frameworks */,
+				3AE5C1EC27D0E24000C6FB9A /* AudioToolbox.framework in Frameworks */,
+				3AE5C1ED27D0E24000C6FB9A /* libzstd.dylib in Frameworks */,
+				3AE5C1EE27D0E24000C6FB9A /* AudioUnit.framework in Frameworks */,
+				3AE5C1EF27D0E24000C6FB9A /* CoreAudio.framework in Frameworks */,
+				3AE5C1F127D0E24000C6FB9A /* libvorbisenc.dylib in Frameworks */,
+				3AE5C1F227D0E24000C6FB9A /* libsndfile.dylib in Frameworks */,
+				3AE5C1F327D0E24000C6FB9A /* libpng16.dylib in Frameworks */,
+				3AE5C1F427D0E24000C6FB9A /* CoreServices.framework in Frameworks */,
+				3AE5C1F527D0E24000C6FB9A /* libvorbis.dylib in Frameworks */,
+				3AE5C1F627D0E24000C6FB9A /* IOKit.framework in Frameworks */,
+				3AE5C1F727D0E24000C6FB9A /* libemulation.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8D15AC330486D014006FF6A4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				0054E4A11131BE7A006D32D9 /* Cocoa.framework in Frameworks */,
+				3ACF928427D0D0E80006876C /* libxml2.dylib in Frameworks */,
+				3ACF928627D0D0E80006876C /* libsamplerate.dylib in Frameworks */,
+				3ACF928A27D0D0E80006876C /* libogg.dylib in Frameworks */,
+				3A7E3CAC27D0EAC2004759CD /* libFLAC.dylib in Frameworks */,
 				0054E4A71131BE8A006D32D9 /* OpenGL.framework in Frameworks */,
 				0054E6311131BEE7006D32D9 /* Carbon.framework in Frameworks */,
 				0054E66C1131BF58006D32D9 /* Quartz.framework in Frameworks */,
 				00F4D0BF12E2E42F00B7F5E6 /* ApplicationServices.framework in Frameworks */,
+				3ACF929627D0D0E80006876C /* libopus.dylib in Frameworks */,
+				3ACF928227D0D0E80006876C /* libportaudio.dylib in Frameworks */,
 				003B167C12EE27ED003FB8F6 /* CoreAudioKit.framework in Frameworks */,
+				3ACF928C27D0D0E80006876C /* libzip.dylib in Frameworks */,
 				003B16B212EE2A05003FB8F6 /* AudioToolbox.framework in Frameworks */,
+				3ACF928E27D0D0E80006876C /* libzstd.dylib in Frameworks */,
 				003B16B712EE2A0D003FB8F6 /* AudioUnit.framework in Frameworks */,
 				003B16C312EE2A18003FB8F6 /* CoreAudio.framework in Frameworks */,
+				3ACF929427D0D0E80006876C /* libvorbisenc.dylib in Frameworks */,
+				3ACF929227D0D0E80006876C /* libsndfile.dylib in Frameworks */,
+				3ACF929827D0D0E80006876C /* libpng16.dylib in Frameworks */,
 				003B16C812EE2A61003FB8F6 /* CoreServices.framework in Frameworks */,
+				3ACF929027D0D0E80006876C /* libvorbis.dylib in Frameworks */,
 				008CA97E147803E500B9F5D0 /* IOKit.framework in Frameworks */,
-				49EB4C4318C63B1800AD682A /* libFLAC.dylib in Frameworks */,
-				00039FD112B04F6C0025D374 /* libxml2.dylib in Frameworks */,
-				002F57E615CDF4AC00C19659 /* libz.a in Frameworks */,
-				49EB4D1418C65CD500AD682A /* libpng16.a in Frameworks */,
-				002F57E815CDF4B400C19659 /* libvorbis.a in Frameworks */,
-				002F57EA15CDF4B900C19659 /* libzip.a in Frameworks */,
-				002F57EC15CDF4C000C19659 /* libsndfile.a in Frameworks */,
-				002F57EE15CDF4C600C19659 /* libsamplerate.a in Frameworks */,
-				002F57F015CDF4CB00C19659 /* libportaudio.a in Frameworks */,
-				002F57F415CDF66B00C19659 /* libogg.a in Frameworks */,
-				002F57F815CDF6F800C19659 /* libvorbisenc.a in Frameworks */,
 				F60993D622C97E7E00B9BE53 /* libemulation.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -302,6 +447,7 @@
 			isa = PBXGroup;
 			children = (
 				8D15AC370486D014006FF6A4 /* OpenEmulator.app */,
+				3AE5C1FC27D0E24000C6FB9A /* OpenEmulator.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -317,6 +463,7 @@
 				000A78A50FBA464600A0F12E /* OpenEmulator.app */,
 				19C28FB0FE9D524F11CA2CBB /* Products */,
 				F60993D422C97E7E00B9BE53 /* Frameworks */,
+				3AE5C1FD27D0E24000C6FB9A /* OpenEmulator copy-Info.plist */,
 			);
 			name = OpenEmulator;
 			sourceTree = "<group>";
@@ -324,17 +471,6 @@
 		2A37F4C3FDCFA73011CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				49EB4D1318C65CD500AD682A /* libpng16.a */,
-				49EB4C4218C63B1800AD682A /* libFLAC.dylib */,
-				002F57F315CDF66B00C19659 /* libogg.a */,
-				002F57EF15CDF4CB00C19659 /* libportaudio.a */,
-				002F57ED15CDF4C600C19659 /* libsamplerate.a */,
-				002F57EB15CDF4C000C19659 /* libsndfile.a */,
-				002F57E715CDF4B400C19659 /* libvorbis.a */,
-				002F57F715CDF6F800C19659 /* libvorbisenc.a */,
-				002F57E515CDF4AC00C19659 /* libz.a */,
-				002F57E915CDF4B900C19659 /* libzip.a */,
-				00039FD012B04F6C0025D374 /* libxml2.dylib */,
 				00F4D0BE12E2E42F00B7F5E6 /* ApplicationServices.framework */,
 				003B165712EE276E003FB8F6 /* AudioToolbox.framework */,
 				003B165112EE275C003FB8F6 /* AudioUnit.framework */,
@@ -483,6 +619,18 @@
 		F60993D422C97E7E00B9BE53 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3A7E3CA927D0EAB4004759CD /* libFLAC.dylib */,
+				3ACF927A27D0D0E80006876C /* libogg.dylib */,
+				3ACF928027D0D0E80006876C /* libopus.dylib */,
+				3ACF928127D0D0E80006876C /* libpng16.dylib */,
+				3ACF927627D0D0E80006876C /* libportaudio.dylib */,
+				3ACF927827D0D0E80006876C /* libsamplerate.dylib */,
+				3ACF927E27D0D0E80006876C /* libsndfile.dylib */,
+				3ACF927D27D0D0E80006876C /* libvorbis.dylib */,
+				3ACF927F27D0D0E80006876C /* libvorbisenc.dylib */,
+				3ACF927727D0D0E80006876C /* libxml2.dylib */,
+				3ACF927B27D0D0E80006876C /* libzip.dylib */,
+				3ACF927C27D0D0E80006876C /* libzstd.dylib */,
 				F60993D522C97E7E00B9BE53 /* libemulation.a */,
 			);
 			name = Frameworks;
@@ -491,15 +639,33 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		3AE5C19627D0E24000C6FB9A /* OpenEmulator-standalone */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3AE5C1F927D0E24000C6FB9A /* Build configuration list for PBXNativeTarget "OpenEmulator-standalone" */;
+			buildPhases = (
+				3AE5C19727D0E24000C6FB9A /* Resources */,
+				3AE5C1C527D0E24000C6FB9A /* Sources */,
+				3AE5C1DF27D0E24000C6FB9A /* Frameworks */,
+				3AE5C1F827D0E24000C6FB9A /* ShellScript */,
+				3AE5C20A27D0E26200C6FB9A /* Embed Libraries */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "OpenEmulator-standalone";
+			productInstallPath = "$(HOME)/Applications";
+			productName = OpenEmulator;
+			productReference = 3AE5C1FC27D0E24000C6FB9A /* OpenEmulator.app */;
+			productType = "com.apple.product-type.application";
+		};
 		8D15AC270486D014006FF6A4 /* OpenEmulator */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C05733C708A9546B00998B17 /* Build configuration list for PBXNativeTarget "OpenEmulator" */;
 			buildPhases = (
-				00F5EC0515ABBE24004D056E /* CopyFiles */,
 				8D15AC2B0486D014006FF6A4 /* Resources */,
 				8D15AC300486D014006FF6A4 /* Sources */,
 				8D15AC330486D014006FF6A4 /* Frameworks */,
-				005486C30FDC84A300DBCFA8 /* Copy Frameworks */,
 				003B149F12EE10D2003FB8F6 /* ShellScript */,
 			);
 			buildRules = (
@@ -536,11 +702,64 @@
 			projectRoot = "";
 			targets = (
 				8D15AC270486D014006FF6A4 /* OpenEmulator */,
+				3AE5C19627D0E24000C6FB9A /* OpenEmulator-standalone */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		3AE5C19727D0E24000C6FB9A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3AE5C19827D0E24000C6FB9A /* sparkle_dsa_pub.pem in Resources */,
+				3AE5C19927D0E24000C6FB9A /* AudioPlay.png in Resources */,
+				3AE5C19A27D0E24000C6FB9A /* IconRevert.png in Resources */,
+				3AE5C19B27D0E24000C6FB9A /* IconVideo.png in Resources */,
+				3AE5C19C27D0E24000C6FB9A /* IconWakeUp.png in Resources */,
+				3AE5C19D27D0E24000C6FB9A /* EmulationUnmountSelected.png in Resources */,
+				3AE5C19E27D0E24000C6FB9A /* EmulationShowPressed.png in Resources */,
+				3AE5C19F27D0E24000C6FB9A /* Preferences.xib in Resources */,
+				3AE5C1A027D0E24000C6FB9A /* IconAudio.png in Resources */,
+				3AE5C1A127D0E24000C6FB9A /* DiskImage.icns in Resources */,
+				3AE5C1A227D0E24000C6FB9A /* IconDevices.png in Resources */,
+				3AE5C1A327D0E24000C6FB9A /* IconSleep.png in Resources */,
+				3AE5C1A427D0E24000C6FB9A /* library in Resources */,
+				3AE5C1A527D0E24000C6FB9A /* EmulationShow.png in Resources */,
+				3AE5C1A627D0E24000C6FB9A /* EmulationUnmountPressed.png in Resources */,
+				3AE5C1A727D0E24000C6FB9A /* roms in Resources */,
+				3AE5C1A827D0E24000C6FB9A /* templates in Resources */,
+				3AE5C1A927D0E24000C6FB9A /* EmulationUnmountRollover.png in Resources */,
+				3AE5C1AA27D0E24000C6FB9A /* IconInspector.png in Resources */,
+				3AE5C1AB27D0E24000C6FB9A /* IconLibrary.png in Resources */,
+				3AE5C1AC27D0E24000C6FB9A /* IconWarmRestart.png in Resources */,
+				3AE5C1AD27D0E24000C6FB9A /* Emulation.icns in Resources */,
+				3AE5C1AE27D0E24000C6FB9A /* EmulationShowRollover.png in Resources */,
+				3AE5C1AF27D0E24000C6FB9A /* IconDebuggerBreak.png in Resources */,
+				3AE5C1B027D0E24000C6FB9A /* Library.xib in Resources */,
+				3AE5C1B127D0E24000C6FB9A /* AudioMax.png in Resources */,
+				3AE5C1B227D0E24000C6FB9A /* TemplateChooserView.xib in Resources */,
+				3AE5C1B327D0E24000C6FB9A /* ToolbarBackground.png in Resources */,
+				3AE5C1B427D0E24000C6FB9A /* Canvas.xib in Resources */,
+				3AE5C1B527D0E24000C6FB9A /* AudioControls.xib in Resources */,
+				3AE5C1B627D0E24000C6FB9A /* IconColdRestart.png in Resources */,
+				3AE5C1B727D0E24000C6FB9A /* sounds in Resources */,
+				3AE5C1B827D0E24000C6FB9A /* EmulationShowSelected.png in Resources */,
+				3AE5C1B927D0E24000C6FB9A /* IconPowerDown.png in Resources */,
+				3AE5C1BA27D0E24000C6FB9A /* IconGeneral.png in Resources */,
+				3AE5C1BB27D0E24000C6FB9A /* AudioRecord.png in Resources */,
+				3AE5C1BC27D0E24000C6FB9A /* OpenEmulator.icns in Resources */,
+				3AE5C1BD27D0E24000C6FB9A /* MainMenu.xib in Resources */,
+				3AE5C1BE27D0E24000C6FB9A /* AudioMin.png in Resources */,
+				3AE5C1BF27D0E24000C6FB9A /* AudioPause.png in Resources */,
+				3AE5C1C027D0E24000C6FB9A /* TemplateChooser.xib in Resources */,
+				3AE5C1C127D0E24000C6FB9A /* EmulationUnmount.png in Resources */,
+				3AE5C1C227D0E24000C6FB9A /* AudioStop.png in Resources */,
+				3AE5C1C327D0E24000C6FB9A /* Emulation.xib in Resources */,
+				3AE5C1C427D0E24000C6FB9A /* images in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8D15AC2B0486D014006FF6A4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -609,9 +828,54 @@
 			shellPath = /bin/sh;
 			shellScript = "VERSION=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" \"$INFOPLIST_FILE\")-$(date -u \"+%Y%m%d%H%M\")\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $VERSION\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"";
 		};
+		3AE5C1F827D0E24000C6FB9A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "VERSION=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" \"$INFOPLIST_FILE\")-$(date -u \"+%Y%m%d%H%M\")\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $VERSION\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		3AE5C1C527D0E24000C6FB9A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3AE5C1C627D0E24000C6FB9A /* CanvasView.mm in Sources */,
+				3AE5C1C727D0E24000C6FB9A /* LibraryTableView.m in Sources */,
+				3AE5C1C827D0E24000C6FB9A /* EmulationWindowController.m in Sources */,
+				3AE5C1C927D0E24000C6FB9A /* BackgroundView.m in Sources */,
+				3AE5C1CA27D0E24000C6FB9A /* EmulationItem.mm in Sources */,
+				3AE5C1CB27D0E24000C6FB9A /* TemplateChooserViewController.m in Sources */,
+				3AE5C1CC27D0E24000C6FB9A /* CanvasWindow.m in Sources */,
+				3AE5C1CD27D0E24000C6FB9A /* LibraryWindowController.m in Sources */,
+				3AE5C1CE27D0E24000C6FB9A /* EmulationOutlineView.m in Sources */,
+				3AE5C1CF27D0E24000C6FB9A /* LibraryItem.mm in Sources */,
+				3AE5C1D027D0E24000C6FB9A /* NSStringAdditions.mm in Sources */,
+				3AE5C1D127D0E24000C6FB9A /* PreferencesWindowController.m in Sources */,
+				3AE5C1D227D0E24000C6FB9A /* EmulationOutlineCell.m in Sources */,
+				3AE5C1D327D0E24000C6FB9A /* main.m in Sources */,
+				3AE5C1D427D0E24000C6FB9A /* CanvasWindowController.m in Sources */,
+				3AE5C1D527D0E24000C6FB9A /* CanvasPrintView.m in Sources */,
+				3AE5C1D627D0E24000C6FB9A /* Document.mm in Sources */,
+				3AE5C1D727D0E24000C6FB9A /* DocumentController.mm in Sources */,
+				3AE5C1D827D0E24000C6FB9A /* LibraryTableCell.m in Sources */,
+				3AE5C1D927D0E24000C6FB9A /* VerticallyCenteredTextFieldCell.m in Sources */,
+				3AE5C1DA27D0E24000C6FB9A /* TemplateChooserWindowController.m in Sources */,
+				3AE5C1DB27D0E24000C6FB9A /* AudioControlsWindowController.mm in Sources */,
+				3AE5C1DC27D0E24000C6FB9A /* TemplateChooserItem.mm in Sources */,
+				3AE5C1DD27D0E24000C6FB9A /* Application.m in Sources */,
+				3AE5C1DE27D0E24000C6FB9A /* CanvasToolbarView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8D15AC300486D014006FF6A4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -778,20 +1042,60 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		3AE5C1FA27D0E24000C6FB9A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXCLUDED_SOURCE_FILE_NAMES = "$(SRCROOT)/src/macosx/Info.plist";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/src/macosx",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = "$(SRCROOT)/src/macosx/Info-standalone.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/lib",
+					"$(inherited)",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.openemulator.OpenEmulator;
+				PRODUCT_NAME = OpenEmulator;
+				SYMROOT = build;
+			};
+			name = Debug;
+		};
+		3AE5C1FB27D0E24000C6FB9A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXCLUDED_SOURCE_FILE_NAMES = "$(SRCROOT)/src/macosx/Info.plist";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/src/macosx",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = "$(SRCROOT)/src/macosx/Info-standalone.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/lib",
+					"$(inherited)",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.openemulator.OpenEmulator;
+				PRODUCT_NAME = OpenEmulator;
+				SYMROOT = build;
+			};
+			name = Release;
+		};
 		C05733C808A9546B00998B17 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				EXCLUDED_SOURCE_FILE_NAMES = "$(SRCROOT)/src/macosx/Info-standalone.plist";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/src/macosx",
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/src/macosx/Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/modules/libemulation/build",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.openemulator.OpenEmulator;
 				PRODUCT_NAME = OpenEmulator;
 			};
@@ -801,16 +1105,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				EXCLUDED_SOURCE_FILE_NAMES = "$(SRCROOT)/src/macosx/Info-standalone.plist";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/src/macosx",
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/src/macosx/Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/modules/libemulation/build",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.openemulator.OpenEmulator;
 				PRODUCT_NAME = OpenEmulator;
 			};
@@ -837,10 +1139,13 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
 					"${SRCROOT}/modules/libemulation/src/**",
-					"${SDKROOT}/usr/include/libxml2",
 					/usr/local/include,
 				);
-				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				LD_RUNPATH_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = (
+					"${SRCROOT}/modules/libemulation/build",
+					/usr/local/lib,
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				ONLY_ACTIVE_ARCH = YES;
 			};
@@ -866,10 +1171,13 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
 					"${SRCROOT}/modules/libemulation/src/**",
-					"${SDKROOT}/usr/include/libxml2",
 					/usr/local/include,
 				);
-				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				LD_RUNPATH_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = (
+					"${SRCROOT}/modules/libemulation/build",
+					/usr/local/lib,
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				ONLY_ACTIVE_ARCH = NO;
 			};
@@ -878,6 +1186,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3AE5C1F927D0E24000C6FB9A /* Build configuration list for PBXNativeTarget "OpenEmulator-standalone" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3AE5C1FA27D0E24000C6FB9A /* Debug */,
+				3AE5C1FB27D0E24000C6FB9A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C05733C708A9546B00998B17 /* Build configuration list for PBXNativeTarget "OpenEmulator" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
