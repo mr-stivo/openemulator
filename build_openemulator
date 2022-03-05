@@ -17,6 +17,11 @@ if(`uname -m` !~ m/x86_64/) {
     $foreign_arch = @archs[0];
 }
 
+my $lib_prefix = "/usr/local";
+if($native_arch eq $archs[1]) {
+    $lib_prefix = "/opt/homebrew";
+}
+
 # Check brew installed, up-to-date and required libraries are installed
 print "Checking current brew installation...\n";
 system("which brew >/dev/null") == 0 or die "error: could not run brew: $?\n";
@@ -36,9 +41,9 @@ if($0 eq "./build_openemulator-standalone") {
     print "\nCopying $native_arch libraries to ./lib directory...\n";
     foreach my $lib (@libs) {
         if($lib eq "libxml2.dylib") {
-            system("cp /usr/local/opt/libxml2/lib/$lib ./lib/") == 0 or die "error: could not copy library [$lib]: $?\n";
+            system("cp $lib_prefix/opt/libxml2/lib/$lib ./lib/") == 0 or die "error: could not copy library [$lib]: $?\n";
         } else {
-            system("cp /usr/local/lib/$lib ./lib/") == 0 or die "error: could not copy library [$lib]: $?\n";
+            system("cp $lib_prefix/lib/$lib ./lib/") == 0 or die "error: could not copy library [$lib]: $?\n";
         }
     }
 }
@@ -61,9 +66,9 @@ if($0 eq "./build_openemulator-universal") {
     foreach my $lib (@libs) {
         print "creating [$lib]...\n";
         if($lib eq "libxml2.dylib") {
-            system("lipo -create /usr/local/opt/libxml2/lib/$lib ./lib/$lib -output ./lib/$lib") == 0 or die "error: could not create universal library for $lib: $?\n";
+            system("lipo -create $lib_prefix/opt/libxml2/lib/$lib ./lib/$lib -output ./lib/$lib") == 0 or die "error: could not create universal library for $lib: $?\n";
         } else {
-            system("lipo -create /usr/local/lib/$lib ./lib/$lib -output ./lib/$lib") == 0 or die "error: could not create universal library for $lib: $?\n";
+            system("lipo -create $lib_prefix/lib/$lib ./lib/$lib -output ./lib/$lib") == 0 or die "error: could not create universal library for $lib: $?\n";
         }
     }
 }
@@ -74,7 +79,7 @@ if($0 ne "./build_openemulator") {
     my %libname;
     LIB: foreach my $lib (@libs) {
         foreach my $l (`otool -L ./lib/$lib`) {
-            if(my $path = ($l =~ /^\s+(\/usr\/local\/.*?)\s/)[0]) {
+            if(my $path = ($l =~ /^\s+($lib_prefix\/.*?)\s/)[0]) {
                 my $name = ($path =~ /.*\/(.*?)$/)[0];
                 $libname{$name} = $lib;
                 next LIB;
@@ -85,7 +90,7 @@ if($0 ne "./build_openemulator") {
     foreach my $lib (@libs) {
         system("install_name_tool -id \@executable_path/../Frameworks/$lib ./lib/$lib 2>/dev/null");
         foreach my $l (`otool -L ./lib/$lib`) {
-            if(my $path = ($l =~ /^\s+(\/usr\/local\/.*?)\s/)[0]) {
+            if(my $path = ($l =~ /^\s+($lib_prefix\/.*?)\s/)[0]) {
                 my $name = ($path =~ /.*\/(.*?)$/)[0];
                 system("install_name_tool -change $path \@executable_path/../Frameworks/" . $libname{$name} . " ./lib/$lib 2>/dev/null");
             }

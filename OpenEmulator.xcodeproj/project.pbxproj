@@ -32,6 +32,7 @@
 		3ACF929427D0D0E80006876C /* libvorbisenc.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ACF927F27D0D0E80006876C /* libvorbisenc.dylib */; };
 		3ACF929627D0D0E80006876C /* libopus.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ACF928027D0D0E80006876C /* libopus.dylib */; };
 		3ACF929827D0D0E80006876C /* libpng16.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ACF928127D0D0E80006876C /* libpng16.dylib */; };
+		3AE2ECE827D3E6A800379CA0 /* Info-standalone.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3AE2ECE727D3E6A800379CA0 /* Info-standalone.plist */; };
 		3AE5C19827D0E24000C6FB9A /* sparkle_dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 49EB4CA618C63BE500AD682A /* sparkle_dsa_pub.pem */; };
 		3AE5C19927D0E24000C6FB9A /* AudioPlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EB4C7A18C63BE500AD682A /* AudioPlay.png */; };
 		3AE5C19A27D0E24000C6FB9A /* IconRevert.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EB4C8F18C63BE500AD682A /* IconRevert.png */; };
@@ -258,8 +259,8 @@
 		3ACF927F27D0D0E80006876C /* libvorbisenc.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libvorbisenc.dylib; path = lib/libvorbisenc.dylib; sourceTree = "<group>"; };
 		3ACF928027D0D0E80006876C /* libopus.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopus.dylib; path = lib/libopus.dylib; sourceTree = "<group>"; };
 		3ACF928127D0D0E80006876C /* libpng16.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libpng16.dylib; path = lib/libpng16.dylib; sourceTree = "<group>"; };
+		3AE2ECE727D3E6A800379CA0 /* Info-standalone.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-standalone.plist"; sourceTree = "<group>"; };
 		3AE5C1FC27D0E24000C6FB9A /* OpenEmulator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenEmulator.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		3AE5C1FD27D0E24000C6FB9A /* OpenEmulator copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "OpenEmulator copy-Info.plist"; path = "/Users/stivo/tmp/openemulator/OpenEmulator copy-Info.plist"; sourceTree = "<absolute>"; };
 		496AF1D818C677B600B35159 /* library */ = {isa = PBXFileReference; lastKnownFileType = folder; name = library; path = modules/libemulation/res/library; sourceTree = "<group>"; };
 		496AF1D918C677B600B35159 /* sounds */ = {isa = PBXFileReference; lastKnownFileType = folder; name = sounds; path = modules/libemulation/res/sounds; sourceTree = "<group>"; };
 		496AF1DA18C677B600B35159 /* templates */ = {isa = PBXFileReference; lastKnownFileType = folder; name = templates; path = modules/libemulation/res/templates; sourceTree = "<group>"; };
@@ -463,7 +464,6 @@
 				000A78A50FBA464600A0F12E /* OpenEmulator.app */,
 				19C28FB0FE9D524F11CA2CBB /* Products */,
 				F60993D422C97E7E00B9BE53 /* Frameworks */,
-				3AE5C1FD27D0E24000C6FB9A /* OpenEmulator copy-Info.plist */,
 			);
 			name = OpenEmulator;
 			sourceTree = "<group>";
@@ -535,6 +535,7 @@
 				49EB4C7418C63BE500AD682A /* TemplateChooserView.xib */,
 				49EB4C7618C63BE500AD682A /* Images */,
 				49EB4C9618C63BE500AD682A /* Info.plist */,
+				3AE2ECE727D3E6A800379CA0 /* Info-standalone.plist */,
 				49EB4C9718C63BE500AD682A /* LibraryItem.h */,
 				49EB4C9818C63BE500AD682A /* LibraryItem.mm */,
 				49EB4C9918C63BE500AD682A /* LibraryTableCell.h */,
@@ -753,6 +754,7 @@
 				3AE5C1BE27D0E24000C6FB9A /* AudioMin.png in Resources */,
 				3AE5C1BF27D0E24000C6FB9A /* AudioPause.png in Resources */,
 				3AE5C1C027D0E24000C6FB9A /* TemplateChooser.xib in Resources */,
+				3AE2ECE827D3E6A800379CA0 /* Info-standalone.plist in Resources */,
 				3AE5C1C127D0E24000C6FB9A /* EmulationUnmount.png in Resources */,
 				3AE5C1C227D0E24000C6FB9A /* AudioStop.png in Resources */,
 				3AE5C1C327D0E24000C6FB9A /* Emulation.xib in Resources */,
@@ -1174,11 +1176,13 @@
 				HEADER_SEARCH_PATHS = (
 					"${SRCROOT}/modules/libemulation/src/**",
 					/usr/local/include,
+					/opt/homebrew/include,
 				);
 				LD_RUNPATH_SEARCH_PATHS = "";
 				LIBRARY_SEARCH_PATHS = (
 					"${SRCROOT}/modules/libemulation/build",
 					/usr/local/lib,
+					/opt/homebrew/lib,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				ONLY_ACTIVE_ARCH = NO;
