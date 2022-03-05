@@ -61,6 +61,8 @@ if($0 eq "./build_openemulator-universal") {
         }
     }
 
+    fixLibPaths();
+
     # Create universal libraries
     print "\nCreating universal libraries...\n";
     foreach my $lib (@libs) {
@@ -74,28 +76,7 @@ if($0 eq "./build_openemulator-universal") {
 }
 
 if($0 ne "./build_openemulator") {
-    # Adjust library IDs and load paths
-    print "\nFixing library IDs and load paths...\n";
-    my %libname;
-    LIB: foreach my $lib (@libs) {
-        foreach my $l (`otool -L ./lib/$lib`) {
-            if(my $path = ($l =~ /^\s+($lib_prefix\/.*?)\s/)[0]) {
-                my $name = ($path =~ /.*\/(.*?)$/)[0];
-                $libname{$name} = $lib;
-                next LIB;
-            }
-        }
-    }
-
-    foreach my $lib (@libs) {
-        system("install_name_tool -id \@executable_path/../Frameworks/$lib ./lib/$lib 2>/dev/null");
-        foreach my $l (`otool -L ./lib/$lib`) {
-            if(my $path = ($l =~ /^\s+($lib_prefix\/.*?)\s/)[0]) {
-                my $name = ($path =~ /.*\/(.*?)$/)[0];
-                system("install_name_tool -change $path \@executable_path/../Frameworks/" . $libname{$name} . " ./lib/$lib 2>/dev/null");
-            }
-        }
-    }
+    fixLibPaths();
 }
 
 print "\nBuilding libemulation...\n";
@@ -117,3 +98,28 @@ if($0 eq "./build_openemulator") {
     system("xcodebuild -arch $native_arch -arch $foreign_arch -target OpenEmulator-standalone") == 0 or die "error: could not run [xcodebuild]: $?\n";
 }
 
+
+sub fixLibPaths {
+    # Adjust library IDs and load paths
+    print "\nChanging library install names...\n";
+    my %libname;
+    LIB: foreach my $lib (@libs) {
+        foreach my $l (`otool -L ./lib/$lib`) {
+            if(my $path = ($l =~ /^\s+(.*?)\s/)[0]) {
+                my $name = ($path =~ /.*\/(.*?)$/)[0];
+                $libname{$name} = $lib;
+                next LIB;
+            }
+        }
+    }
+
+    foreach my $lib (@libs) {
+        system("install_name_tool -id \@executable_path/../Frameworks/$lib ./lib/$lib 2>/dev/null");
+        foreach my $l (`otool -L ./lib/$lib`) {
+            if(my $path = ($l =~ /^\s+((\@\@HOMEBREW.*?|$lib_prefix)\/.*?)\s/)[0]) {
+                my $name = ($path =~ /.*\/(.*?)$/)[0];
+                system("install_name_tool -change $path \@executable_path/../Frameworks/" . $libname{$name} . " ./lib/$lib 2>/dev/null");
+            }
+        }
+    }
+}
