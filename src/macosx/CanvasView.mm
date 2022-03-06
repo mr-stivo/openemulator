@@ -766,9 +766,8 @@ static CVReturn displayLinkCallback(CVDisplayLinkRef displayLink,
     NSImage *theImage = [[[NSImage alloc] init] autorelease];
     [theImage addRepresentation:rep];
     
-    [theImage setFlipped:YES];
-    // This flips the rep
-    [theImage lockFocusOnRepresentation:rep];
+    [theImage lockFocusFlipped:YES];
+    [rep drawInRect:NSMakeRect(0, 0, size.width, size.height)];
     [theImage unlockFocus];
     
     return theImage;
