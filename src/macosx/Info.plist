@@ -323,6 +323,8 @@
 	<string>public.app-category.education</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>10.5</string>
+	<key>NSHighResolutionCapable</key>
+	<true/>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2009-2012, Marc S. Reßl
 Copyright © 2014, The OpenEmulator Project</string>

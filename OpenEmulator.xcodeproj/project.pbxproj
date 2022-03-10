@@ -134,7 +134,6 @@
 		3AE5C20427D0E26200C6FB9A /* libsndfile.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 3ACF927E27D0D0E80006876C /* libsndfile.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		3AE5C20527D0E26200C6FB9A /* libvorbis.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 3ACF927D27D0D0E80006876C /* libvorbis.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		3AE5C20627D0E26200C6FB9A /* libvorbisenc.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 3ACF927F27D0D0E80006876C /* libvorbisenc.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		3AE5C20727D0E26200C6FB9A /* libxml2.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 3ACF927727D0D0E80006876C /* libxml2.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		3AE5C20827D0E26200C6FB9A /* libzip.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 3ACF927B27D0D0E80006876C /* libzip.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		3AE5C20927D0E26200C6FB9A /* libzstd.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 3ACF927C27D0D0E80006876C /* libzstd.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		496AF1DC18C677B600B35159 /* library in Resources */ = {isa = PBXBuildFile; fileRef = 496AF1D818C677B600B35159 /* library */; };
@@ -227,7 +226,6 @@
 				3AE5C20027D0E26200C6FB9A /* libopus.dylib in Embed Libraries */,
 				3AE5C20627D0E26200C6FB9A /* libvorbisenc.dylib in Embed Libraries */,
 				3AE5C20127D0E26200C6FB9A /* libpng16.dylib in Embed Libraries */,
-				3AE5C20727D0E26200C6FB9A /* libxml2.dylib in Embed Libraries */,
 				3AE5C20827D0E26200C6FB9A /* libzip.dylib in Embed Libraries */,
 			);
 			name = "Embed Libraries";
@@ -1059,6 +1057,7 @@
 					"$(PROJECT_DIR)/lib",
 					"$(inherited)",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = org.openemulator.OpenEmulator;
 				PRODUCT_NAME = OpenEmulator;
 				SYMROOT = build;
@@ -1080,6 +1079,7 @@
 					"$(PROJECT_DIR)/lib",
 					"$(inherited)",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = org.openemulator.OpenEmulator;
 				PRODUCT_NAME = OpenEmulator;
 				SYMROOT = build;
@@ -1098,6 +1098,7 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/src/macosx/Info.plist";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = org.openemulator.OpenEmulator;
 				PRODUCT_NAME = OpenEmulator;
 			};
@@ -1115,6 +1116,7 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/src/macosx/Info.plist";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = org.openemulator.OpenEmulator;
 				PRODUCT_NAME = OpenEmulator;
 			};
@@ -1141,6 +1143,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
 					"${SRCROOT}/modules/libemulation/src/**",
+					/usr/include/libxml2,
+					"$(SDKROOT)/usr/include/libxml2",
 					/usr/local/include,
 					/opt/homebrew/include,
 				);
@@ -1175,6 +1179,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
 					"${SRCROOT}/modules/libemulation/src/**",
+					/usr/include/libxml2,
+					"$(SDKROOT)/usr/include/libxml2",
 					/usr/local/include,
 					/opt/homebrew/include,
 				);

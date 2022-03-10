@@ -3,8 +3,8 @@
 use strict;
 #use warnings;
 
-my @formulas = qw(libpng zstd libzip portaudio libogg flac libvorbis opus libsndfile libsamplerate libxml2); ### DO NOT CHANGE ORDER ###
-my @libs = qw(libFLAC.dylib libogg.dylib libopus.dylib libpng16.dylib libportaudio.dylib libsamplerate.dylib libsndfile.dylib libvorbis.dylib libvorbisenc.dylib libxml2.dylib libzip.dylib libzstd.dylib);
+my @formulas = qw(libpng zstd libzip portaudio libogg flac libvorbis opus libsndfile libsamplerate); ### DO NOT CHANGE ORDER ###
+my @libs = qw(libFLAC.dylib libogg.dylib libopus.dylib libpng16.dylib libportaudio.dylib libsamplerate.dylib libsndfile.dylib libvorbis.dylib libvorbisenc.dylib libzip.dylib libzstd.dylib);
 
 if($0 !~ m/\.\/build_openemulator|\.\/build_openemulator-standalone|\.\/build_openemulator-universal/) {
     die "bad!"
@@ -40,12 +40,10 @@ if($0 eq "./build_openemulator-standalone") {
     # Copying libraries to ./lib
     print "\nCopying $native_arch libraries to ./lib directory...\n";
     foreach my $lib (@libs) {
-        if($lib eq "libxml2.dylib") {
-            system("cp $lib_prefix/opt/libxml2/lib/$lib ./lib/") == 0 or die "error: could not copy library [$lib]: $?\n";
-        } else {
-            system("cp $lib_prefix/lib/$lib ./lib/") == 0 or die "error: could not copy library [$lib]: $?\n";
-        }
+        system("cp $lib_prefix/lib/$lib ./lib/") == 0 or die "error: could not copy library [$lib]: $?\n";
     }
+
+    system("chmod u+w ./lib/*");
 }
 
 if($0 eq "./build_openemulator-universal") {
@@ -61,22 +59,21 @@ if($0 eq "./build_openemulator-universal") {
         }
     }
 
+    system("chmod u+w ./lib/*");
+
     fixLibPaths();
 
     # Create universal libraries
     print "\nCreating universal libraries...\n";
     foreach my $lib (@libs) {
         print "creating [$lib]...\n";
-        if($lib eq "libxml2.dylib") {
-            system("lipo -create $lib_prefix/opt/libxml2/lib/$lib ./lib/$lib -output ./lib/$lib") == 0 or die "error: could not create universal library for $lib: $?\n";
-        } else {
-            system("lipo -create $lib_prefix/lib/$lib ./lib/$lib -output ./lib/$lib") == 0 or die "error: could not create universal library for $lib: $?\n";
-        }
+        system("lipo -create $lib_prefix/lib/$lib ./lib/$lib -output ./lib/$lib") == 0 or die "error: could not create universal library for $lib: $?\n";
     }
 }
 
 if($0 ne "./build_openemulator") {
     fixLibPaths();
+    system("chmod u-w ./lib/*");
 }
 
 print "\nBuilding libemulation...\n";
