@@ -1,13 +1,79 @@
 #!/usr/bin/perl
+########################################################################
+#
+# - build_openemulator - The OpenEmulator build assistant.
+#
+# This script will assist in building the OpenEmulator application.
+#
+# The script must be run from within the openemulator project directory.
+# Homebrew must be installed and updated beforehand. You can invoke the
+# build_openemulator script in three different ways with three different
+# results:
+#
+#
+# ./build_openemulator
+#
+# Downloads and installs the required libraries using Homebrew.
+# OpenEmulator is dynamically linked to these libraries. This will
+# create the smallest application but requires the libraries always be
+# installed and available.
+#
+#
+# ./build_openemulator-standalone
+#
+# Downloads and installs the required libraries for the current
+# architecture using Homebrew. OpenEmulator is statically linked to
+# these libraries. The libraries will be embedded into the application
+# bundle.
+#
+#
+# ./build_openemulator-universal
+#
+# Same as above except all architecture libraries are statically linked
+# and embedded into the application. The resulting application is
+# universal and should run on all architectures. This will create the
+# largest application.
+#
+#
+# - Libraries -
+#
+# Homebrew will download and if needed install the latest version of
+# libraries required by OpenEmulator. There may be situations where you
+# want to install your own libraries, for instance, to support older
+# macOS versions or custom modifications.
+#
+# If building a standalone version, two directories will be created
+# within the "openemulator" directory, "lib" and "lib_x86_64" or
+# "lib_arm64" depending on the building machine's architecture.
+#
+# If building a universal version, all three directories will be
+# created.
+#
+# During the build, libraries will first be copied into the proper
+# architecture directory and then copied into the "lib" directory. If
+# building a universal application, the libraries from each architecture
+# directory will be combined and copied into the "lib" directory.
+#
+# If you create any of the directories and add any libraries, those
+# libraries will be used during the build. For instance, if you have
+# older x86_64 libraries that are compatible with older versions of
+# macOS, you can create the directory "lib_x86_64" and copy those
+# libraries to the directory. These libraries will be used for building.
+# Another example would be you have some precompiled universal
+# libraries, create the directory "lib" and copy the libraries there.
+#
+########################################################################
 
 use strict;
 #use warnings;
+use File::Temp qw/tempdir/;
+
 
 my @formulas = qw(libpng zstd libzip portaudio libogg flac libvorbis opus libsndfile libsamplerate); ### DO NOT CHANGE ORDER ###
 my @libs = qw(libFLAC.dylib libogg.dylib libopus.dylib libpng16.dylib libportaudio.dylib libsamplerate.dylib libsndfile.dylib libvorbis.dylib libvorbisenc.dylib libzip.dylib libzstd.dylib);
 
 if($0 !~ m/\.\/build_openemulator|\.\/build_openemulator-standalone|\.\/build_openemulator-universal/) {
-    die "bad!"
+    die "error: You must run this from the openemulator project folder\n";
 }
 
 my @archs = qw(x86_64 arm64);
@@ -24,84 +90,115 @@ if($native_arch eq $archs[1]) {
 
 # Check brew installed, up-to-date and required libraries are installed
 print "Checking current brew installation...\n";
-system("which brew >/dev/null") == 0 or die "error: could not run brew: $?\n";
-#system("HOMEBREW_NO_ENV_HINTS=1 brew update") == 0 or die "error: could not update brew: $?\n";
-#system("HOMEBREW_NO_ENV_HINTS=1 brew upgrade") == 0 or die "error: could not upgrade brew: $?\n";
-system("HOMEBREW_NO_ENV_HINTS=1 brew install cmake") == 0 or die "error: could not install cmake: $?\n";
+system("brew --version") == 0 or die "error: could not run brew: $!\n";
+#system("HOMEBREW_NO_ENV_HINTS=1 brew update") == 0 or die "error: could not update brew: $!\n";
+#system("HOMEBREW_NO_ENV_HINTS=1 brew upgrade") == 0 or die "error: could not upgrade brew: $!\n";
+print "\nInstalling cmake and required libraries...\n";
+system("HOMEBREW_NO_ENV_HINTS=1 brew install cmake") == 0 or die "error: could not install cmake: $!\n";
 foreach my $formula (@formulas) {
-    system("HOMEBREW_NO_ENV_HINTS=1 brew install $formula") == 0 or die "error: could not install $formula: $?\n";
+    system("HOMEBREW_NO_ENV_HINTS=1 brew install $formula") == 0 or die "error: could not install $formula: $!\n";
 }
 
 if($0 ne "./build_openemulator") {
-    system("mkdir -p ./lib") == 0 or die "error: could not create ./lib directory: $?\n";
+    system("mkdir -p ./lib") == 0 or die "error: could not create [./lib] directory: $!\n";
+    system("mkdir -p ./lib_$native_arch") == 0 or die "error: could not create [./lib_$native_arch] directory: $!\n";
+
+    if($0 eq "./build_openemulator-universal") {
+        system("mkdir -p ./lib_$foreign_arch") == 0 or die "error: could not create [./lib_$foreign_arch] directory: $!\n";
+    }
+
+    # Copying libraries to ./lib_$native_arch
+    print "\nCopying $native_arch libraries to ./lib_$native_arch directory...\n";
+    foreach my $lib (@libs) {
+        unless(-e "./lib_$native_arch/$lib") {
+            system("cp $lib_prefix/lib/$lib ./lib_$native_arch") == 0 or die "error: could not copy library [$lib]: $!\n";
+        }
+    }
+    system("chmod u+w ./lib_$native_arch/*");
+
+    print "\nAdjusting library IDs and paths...\n";
+    fixLibs("./lib_$native_arch");
 }
 
 if($0 eq "./build_openemulator-standalone") {
     # Copying libraries to ./lib
     print "\nCopying $native_arch libraries to ./lib directory...\n";
     foreach my $lib (@libs) {
-        system("cp $lib_prefix/lib/$lib ./lib/") == 0 or die "error: could not copy library [$lib]: $?\n";
+        unless(-e "./lib/$lib") {
+            system("cp ./lib_$native_arch/$lib ./lib") == 0 or die "error: could not copy library [$lib]: $!\n";
+        }
     }
-
-    system("chmod u+w ./lib/*");
 }
 
 if($0 eq "./build_openemulator-universal") {
     # Install foreign arch libraries
-    print "\nInstalling $foreign_arch libraries...\n";
+    my $tmp = tempdir( CLEANUP => 1 );
+    print "\nDownloading $foreign_arch libraries...\n";
     foreach my $formula (@formulas) {
         print "\ndownloading [$formula]...\n";
         my $response = `brew fetch --force --bottle-tag=${foreign_arch}_big_sur $formula`;
         if($response =~ m/Downloaded to: (.*?)\s+/s) {
-            print "installing...\n";
-            system("tar", "-xvzf", $1, "--strip-components=2", "-C", "./", "*/*/lib") == 0 or die "error: could not extract archive [$response]: $?\n";
+            print "extracting...\n";
+            system("tar", "-xvzf", $1, "--strip-components=3", "-C", $tmp, "*/*/lib") == 0 or die "error: could not extract archive [$response]: $!\n";
             system("rm $1");
         }
     }
 
-    system("chmod u+w ./lib/*");
+    # Copying libraries to ./lib_$foreign_arch
+    print "\nCopying $foreign_arch libraries to ./lib_$foreign_arch directory...\n";
+    foreach my $lib (@libs) {
+        unless(-e "./lib_$foreign_arch/$lib") {
+            system("cp $tmp/$lib ./lib_$foreign_arch") == 0 or die "error: could not copy library [$lib]: $!\n";
+        }
+    }
+    system("chmod u+w ./lib_$foreign_arch/*");
 
-    fixLibPaths();
+    print "\nAdjusting library IDs and paths...\n";
+    fixLibs("./lib_$foreign_arch");
 
     # Create universal libraries
     print "\nCreating universal libraries...\n";
     foreach my $lib (@libs) {
-        print "creating [$lib]...\n";
-        system("lipo -create $lib_prefix/lib/$lib ./lib/$lib -output ./lib/$lib") == 0 or die "error: could not create universal library for $lib: $?\n";
+        unless(-e "./lib/$lib") {
+            print "creating [$lib]...\n";
+            system("lipo -create ./lib_$native_arch/$lib ./lib_$foreign_arch/$lib -output ./lib/$lib") == 0 or die "error: could not create universal library for $lib: $!\n";
+        }
     }
 }
 
-if($0 ne "./build_openemulator") {
-    fixLibPaths();
-    system("chmod u-w ./lib/*");
-}
+system("chmod u-w ./lib/*") if(-e ".lib");
+
 
 print "\nBuilding libemulation...\n";
+
 if($0 eq "./build_openemulator") {
-    system("cmake -Hmodules/libemulation -Bmodules/libemulation/build -DCMAKE_BUILD_TYPE=Release") == 0 or die "error: could not run [cmake]: $?\n";
+    system("cmake -Hmodules/libemulation -Bmodules/libemulation/build -DCMAKE_BUILD_TYPE=Release") == 0 or die "error: could not run [cmake]: $!\n";
 } elsif($0 eq "./build_openemulator-standalone") {
-    system("CMAKE_PREFIX_PATH=./lib cmake -Hmodules/libemulation -Bmodules/libemulation/build -DCMAKE_BUILD_TYPE=Release") == 0 or die "error: could not run [cmake]: $?\n";
+    system("CMAKE_PREFIX_PATH=./lib cmake -Hmodules/libemulation -Bmodules/libemulation/build -DCMAKE_BUILD_TYPE=Release") == 0 or die "error: could not run [cmake]: $!\n";
 } else {
-    system("UNIVERSAL=1 CMAKE_PREFIX_PATH=./lib cmake -Hmodules/libemulation -Bmodules/libemulation/build -DCMAKE_BUILD_TYPE=Release") == 0 or die "error: could not run [cmake]: $?\n";
+    system("UNIVERSAL=1 CMAKE_PREFIX_PATH=./lib cmake -Hmodules/libemulation -Bmodules/libemulation/build -DCMAKE_BUILD_TYPE=Release") == 0 or die "error: could not run [cmake]: $!\n";
 }
-system("cmake --build modules/libemulation/build --config Release") == 0 or die "error: could not run [cmake]: $?\n";
+system("cmake --build modules/libemulation/build --config Release") == 0 or die "error: could not run [cmake]: $!\n";
+
 
 print "\nBuilding OpenEmulator...\n";
+
 if($0 eq "./build_openemulator") {
-    system("xcodebuild -arch $native_arch") == 0 or die "error: could not run [xcodebuild]: $?\n";
+    system("xcodebuild -arch $native_arch") == 0 or die "error: could not run [xcodebuild]: $!\n";
 } elsif($0 eq "./build_openemulator-standalone") {
-    system("xcodebuild -arch $native_arch -target OpenEmulator-standalone") == 0 or die "error: could not run [xcodebuild]: $?\n";
+    system("xcodebuild -arch $native_arch -target OpenEmulator-standalone") == 0 or die "error: could not run [xcodebuild]: $!\n";
 } else {
-    system("xcodebuild -arch $native_arch -arch $foreign_arch -target OpenEmulator-standalone") == 0 or die "error: could not run [xcodebuild]: $?\n";
+    system("xcodebuild -arch $native_arch -arch $foreign_arch -target OpenEmulator-standalone") == 0 or die "error: could not run [xcodebuild]: $!\n";
 }
 
 
-sub fixLibPaths {
+sub fixLibs {
+    my $dir = shift;
+
     # Adjust library IDs and load paths
-    print "\nChanging library install names...\n";
     my %libname;
     LIB: foreach my $lib (@libs) {
-        foreach my $l (`otool -L ./lib/$lib`) {
+        foreach my $l (`otool -L $dir/$lib`) {
             if(my $path = ($l =~ /^\s+(.*?)\s/)[0]) {
                 my $name = ($path =~ /.*\/(.*?)$/)[0];
                 $libname{$name} = $lib;
@@ -111,11 +208,11 @@ sub fixLibPaths {
     }
 
     foreach my $lib (@libs) {
-        system("install_name_tool -id \@executable_path/../Frameworks/$lib ./lib/$lib 2>/dev/null");
-        foreach my $l (`otool -L ./lib/$lib`) {
-            if(my $path = ($l =~ /^\s+((\@\@HOMEBREW.*?|$lib_prefix)\/.*?)\s/)[0]) {
+        system("install_name_tool -id \@executable_path/../Frameworks/$lib $dir/$lib 2>/dev/null");
+        foreach my $l (`otool -L $dir/$lib`) {
+            if(my $path = ($l =~ /^\s+((\@\@HOMEBREW.*?|\@executable_path.*?|\@loader_path.*?|$lib_prefix.*?)\/.*?)\s/)[0]) {
                 my $name = ($path =~ /.*\/(.*?)$/)[0];
-                system("install_name_tool -change $path \@executable_path/../Frameworks/" . $libname{$name} . " ./lib/$lib 2>/dev/null");
+                system("install_name_tool -change $path \@executable_path/../Frameworks/" . $libname{$name} . " $dir/$lib 2>/dev/null");
             }
         }
     }
