@@ -108,6 +108,8 @@ static CVReturn displayLinkCallback(CVDisplayLinkRef displayLink,
     
     if (self)
     {
+        [self setWantsBestResolutionOpenGLSurface:YES];
+
         // From:
         //   http://stuff.mit.edu/afs/sipb/project/darwin/src/
         //   modules/AppleADBKeyboard/AppleADBKeyboard.cpp
