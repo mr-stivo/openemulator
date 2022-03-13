@@ -42,6 +42,7 @@ NSOutlineViewDataSource, NSComboBoxDataSource>
     NSButtonCell *checkBoxCell;
     NSPopUpButtonCell *popUpButtonCell;
     NSSliderCell *sliderCell;
+    NSTextFieldCell *textFieldCell;
 }
 
 - (void)updateWindow:(id)sender;

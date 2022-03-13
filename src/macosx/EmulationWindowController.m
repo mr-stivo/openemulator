@@ -40,6 +40,8 @@
         sliderCell = [[NSSliderCell alloc] initTextCell:@""];
         [sliderCell setControlSize:NSSmallControlSize];
         [sliderCell	setNumberOfTickMarks:3];
+        
+        textFieldCell = [[NSTextFieldCell alloc] initTextCell:@""];
     }
     
     return self;
@@ -734,6 +736,10 @@ dataCellForTableColumn:(NSTableColumn *)tableColumn
                 [sliderCell setAction:@selector(tableViewDataCellDidUpdate:)];
                 
                 return sliderCell;
+            }
+            else if ([type compare:@"textfield"] == NSOrderedSame)
+            {
+                return textFieldCell;
             }
         }
     }
